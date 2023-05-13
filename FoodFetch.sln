@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFetch.Api", "FoodFetch.Api\FoodFetch.Api.csproj", "{9F6DF768-445B-42FA-AB3E-40145F57206D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFetch.Contracts", "FoodFetch.Contracts\FoodFetch.Contracts.csproj", "{1709EAD0-BB77-4A3E-8B33-375177831A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFetch.Domain", "FoodFetch.Domain\FoodFetch.Domain.csproj", "{D1102B8E-5A04-441C-922C-F893E2EB418D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFetch.UnitTests", "FoodFetch.UnitTests\FoodFetch.UnitTests.csproj", "{8BBC4955-595B-49CA-A963-46D6232A22AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFetch.IntegrationTests", "FoodFetch.IntegrationTests\FoodFetch.IntegrationTests.csproj", "{56BE0349-1C73-4BC2-A687-A042ED6E95F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F6DF768-445B-42FA-AB3E-40145F57206D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6DF768-445B-42FA-AB3E-40145F57206D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6DF768-445B-42FA-AB3E-40145F57206D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6DF768-445B-42FA-AB3E-40145F57206D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1709EAD0-BB77-4A3E-8B33-375177831A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1709EAD0-BB77-4A3E-8B33-375177831A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1709EAD0-BB77-4A3E-8B33-375177831A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1709EAD0-BB77-4A3E-8B33-375177831A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1102B8E-5A04-441C-922C-F893E2EB418D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1102B8E-5A04-441C-922C-F893E2EB418D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1102B8E-5A04-441C-922C-F893E2EB418D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1102B8E-5A04-441C-922C-F893E2EB418D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBC4955-595B-49CA-A963-46D6232A22AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBC4955-595B-49CA-A963-46D6232A22AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBC4955-595B-49CA-A963-46D6232A22AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBC4955-595B-49CA-A963-46D6232A22AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56BE0349-1C73-4BC2-A687-A042ED6E95F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56BE0349-1C73-4BC2-A687-A042ED6E95F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56BE0349-1C73-4BC2-A687-A042ED6E95F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56BE0349-1C73-4BC2-A687-A042ED6E95F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
