@@ -4,15 +4,21 @@ This is a simple service providing the ability to order food, check status info 
 
 ## User Stories
 
-- As a user, I want to be able to watch the list of restaurants;
-- As a user, I want to be able to watch the list of food by a restaurant;
-- As a user, I want to be able to watch the
-- As a user, I want to be able to create order.
+- As a user/deliveryman, I want to be able to create my account;
+- As a user/deliveryman, I want to be able to update some information about my account;
+-
+- As a user, I want to be able to get the list of restaurants;
+- As a user, I want to be able to get the information about a specific restaurant;
+- As a user, I want to be able to get the information about a specific food;
+- As a user, I want to be able to create order;
+
+- As a deliveryman, I want to be able to get an information about a specific order;
+- As a deliveryman, I want to be able to update the status of a specific order.
 
 ## User Roles
 
 - `client` - The role describing an ordinary customer that can make orders;
-- `deliveryman` - The role describing deliveryman that can change the order status;
+- `deliveryman` - The role describing deliveryman that can change the order status.
 
 ## Order Statuses
 
@@ -32,11 +38,11 @@ Tasks have the following fields:
 - `restaurant` - The restaurant that prepares the food specified in the order;
 - `order_list` - The list of dishes chosen by the client;
 - `request` - The client's wish to a restaurant;
-- `status` - The status of the order.
+- `status` - The status of the order;
 - `ordered_at` - The date and time the order was created;
 - `closed_at` - The date and time the order was delivered/failed;
 - `delivery_place` - The place of delivery;
-- `email` - The email address of the client;
+- `email` - The email address of the client.
 
 ## Food Fields
 
@@ -66,7 +72,7 @@ Restaurant have the following fields:
 - `first_name` - The first name of user;
 - `second_name` - The second name of user;
 - `email` - The email of user;
-- `role` - The role of the user;
+- `role` - The role of the user.
 
 ## Restaurant Endpoints
 
@@ -75,7 +81,7 @@ The following endpoints are available for interacting with restaurants:
 - `GET /restaurants` - Retrieve a list of restaurants;
 - `GET /restaurants/:id` - Retrieve an information about the restaurant by it's ID;
 - `GET /restaurants/:id/food` - Retrieve an information about food list of the restaurant by it's ID;
-- `GET /restaurants/:restaurant_id/food/:food_id` - Retrieve an information about a specific restaurant food by their ID;
+- `GET /restaurants/:restaurant_id/food/:food_id` - Retrieve an information about a specific restaurant food by their ID.
 
 ## Order Endpoints
 
@@ -83,11 +89,11 @@ The following endpoints are available for interacting with restaurants:
 
 - `PUT /order` - Create a new order;
 - `GET /order/:id` - Retrieve an information about order by it's ID;
-- `PATCH /order/:id/status` - Update the status of an order.
+- `PATCH /order/:id/status` - Update the status of an order (for deliveries only).
 
 ## Users Endpoints
 
 The following endpoints are available for interacting with users:
 
 - `PUT /users/new/:role` - Create a new user;
-- `PATCH /users/:id` - Update an information about user by his ID;
+- `PATCH /users/:id` - Update an information about user by his ID.
