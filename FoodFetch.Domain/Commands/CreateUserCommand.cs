@@ -2,8 +2,8 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
+using FoodFetch.Contracts.Enums;
 using FoodFetch.Domain.Database.Models;
-using FoodFetch.Domain.Enums;
 using FoodFetch.Domain.Repositories;
 
 using MediatR;
@@ -34,7 +34,7 @@ namespace FoodFetch.Domain.Commands
 
         public async Task<CreateUserResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            User user = new()
+            DatabaseUser user = new()
             {
                 FirstName = request.FirstName,
                 SecondName = request.SecondName,

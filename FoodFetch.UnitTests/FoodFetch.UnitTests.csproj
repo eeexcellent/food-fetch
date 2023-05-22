@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FoodFetch.Contracts\FoodFetch.Contracts.csproj" />
     <ProjectReference Include="..\FoodFetch.Domain\FoodFetch.Domain.csproj" />
   </ItemGroup>
+
 
 </Project>

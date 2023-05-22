@@ -2,9 +2,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
+using FoodFetch.Contracts.Enums;
 using FoodFetch.Domain.Commands;
 using FoodFetch.Domain.Database.Models;
-using FoodFetch.Domain.Enums;
 using FoodFetch.Domain.Repositories;
 
 using MediatR;
@@ -45,7 +45,7 @@ namespace FoodFetch.UnitTests.Commands
 
             // Assert
             _repositoryMock.Verify(x => x.AddUser(
-                It.Is<User>(p => p.FirstName == command.FirstName
+                It.Is<DatabaseUser>(p => p.FirstName == command.FirstName
                 && p.SecondName == secondName
                 && p.Role == role
                 && p.Email == email),

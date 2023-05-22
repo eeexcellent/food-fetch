@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using FoodFetch.Domain.Enums;
+using FoodFetch.Contracts.Enums;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,7 @@ namespace FoodFetch.Domain.Database.Models
 {
     [Table("tbl_users")]
     [Index(nameof(Email), IsUnique = true)]
-    public class User
+    public class DatabaseUser
     {
         [Key]
         [Column("id")]

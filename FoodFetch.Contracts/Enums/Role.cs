@@ -1,4 +1,4 @@
-namespace FoodFetch.Domain.Enums
+namespace FoodFetch.Contracts.Enums
 {
     public enum Role
     {

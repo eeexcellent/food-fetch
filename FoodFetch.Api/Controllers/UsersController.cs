@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 using FoodFetch.Contracts.Http;
 using FoodFetch.Domain.Commands;
+using FoodFetch.Domain.Queries;
 
 using MediatR;
 
@@ -38,6 +39,27 @@ namespace FoodFetch.Api.Controllers
             {
                 Id = result.Id
             });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(string id, CancellationToken cancellationToken = default)
+        {
+            GetUserByIdQuery query = new()
+            {
+                Id = id
+            };
+
+            GetUserByIdResult result = await _mediator.Send(query, cancellationToken);
+
+            return result.User == null
+                ? NotFound(new ErrorModel
+                {
+                    Message = $"User with {id} not found"
+                })
+                : Ok(new GetUserByIdResponse()
+                {
+                    User = result.User
+                });
         }
     }
 }

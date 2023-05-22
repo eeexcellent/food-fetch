@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using FoodFetch.Domain.Enums;
+using FoodFetch.Contracts.Enums;
 
 namespace FoodFetch.Domain.Database.Models
 {
@@ -24,7 +24,7 @@ namespace FoodFetch.Domain.Database.Models
         [Column("user_id")]
         public Guid UserId { get; set; }
         [ForeignKey(nameof(UserId))]
-        public virtual User User { get; set; }
+        public virtual DatabaseUser User { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

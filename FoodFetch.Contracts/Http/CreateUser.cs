@@ -1,16 +1,16 @@
-using FoodFetch.Domain.Enums;
+using FoodFetch.Contracts.Enums;
 
 namespace FoodFetch.Contracts.Http
 {
     public class CreateUserRequest
     {
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public Role Role { get; set; }
-        public string Email { get; set; }
+        public string FirstName { get; init; }
+        public string SecondName { get; init; }
+        public Role Role { get; init; }
+        public string Email { get; init; }
     }
     public class CreateUserResponse
     {
-        public string Id { get; set; }
+        public string Id { get; init; }
     }
 }
