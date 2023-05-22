@@ -13,6 +13,7 @@ namespace FoodFetch.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Produces("application/json")]
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -21,7 +22,29 @@ namespace FoodFetch.Api.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Create new user
+        /// </summary>
+        /// <param name="request">Information about user</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>Identifier of newly created user</returns>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     PUT /users
+        ///     {
+        ///         "firstName": "First Name"
+        ///         "secondName": "Second Name"
+        ///         "role": 0
+        ///         "email": "example@gmail.com"
+        ///     }
+        /// 
+        /// </remarks>
+        /// <response code="201">User created</response>
+        /// <response code="400">Invalid request</response>
+        /// <response code="500">Internal server error</response>
         [HttpPut]
+        [ProducesResponseType(typeof(CreateUserResponse), 201)]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request,
             CancellationToken cancellationToken = default)
         {
@@ -41,8 +64,20 @@ namespace FoodFetch.Api.Controllers
             });
         }
 
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <param name="id">User identifier</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>User information</returns>
+        /// <response code="200">Returns user information</response>
+        /// <response code="404">User not found</response>
+        /// <response code="500">Internal server error</response>
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(string id, CancellationToken cancellationToken = default)
+        [ProducesResponseType(typeof(GetUserByIdResponse), 200)]
+        [ProducesResponseType(typeof(ErrorModel), 404)]
+        public async Task<IActionResult> GetUserById(string id,
+            CancellationToken cancellationToken = default)
         {
             GetUserByIdQuery query = new()
             {
