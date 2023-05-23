@@ -95,5 +95,6 @@ The following endpoints are available for interacting with restaurants:
 
 The following endpoints are available for interacting with users:
 
-- `PUT /users/new/:role` - Create a new user;
+- `PUT /users` - Create a new user;
+- `GET /user/:id` - Retrieve an information about user by his ID;
 - `PATCH /users/:id` - Update an information about user by his ID.

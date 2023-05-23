@@ -9,6 +9,8 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
 using System.IO;
+using FoodFetch.Api;
+using Microsoft.Extensions.Options;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +30,17 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+builder.Services.AddOptions<FoodFetchOptions>()
+    .Bind(builder.Configuration);
+
 builder.Services.AddDomain();
-builder.Services.AddDbContext<FoodFetchContext>(c => _ = c.UseNpgsql("Host=localhost;Database=food_fetch;Username=postgres;Password=postgres123"));
+builder.Services.AddDbContext<FoodFetchContext>(
+    (IServiceProvider sp, DbContextOptionsBuilder c) =>
+    {
+        IOptionsMonitor<FoodFetchOptions> options = sp.GetRequiredService<IOptionsMonitor<FoodFetchOptions>>();
+        _ = c.UseNpgsql(options.CurrentValue.FoodFetchConnectionString);
+    }
+);
 
 WebApplication app = builder.Build();
 
