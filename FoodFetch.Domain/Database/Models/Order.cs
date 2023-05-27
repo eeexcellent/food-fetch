@@ -26,6 +26,6 @@ namespace FoodFetch.Domain.Database.Models
         [ForeignKey(nameof(UserId))]
         public virtual DatabaseUser User { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<DatabaseProduct> Products { get; set; }
     }
 }

@@ -78,10 +78,8 @@ Restaurant have the following fields:
 
 The following endpoints are available for interacting with restaurants:
 
-- `GET /restaurants` - Retrieve a list of restaurants;
-- `GET /restaurants/:id` - Retrieve an information about the restaurant by it's ID;
-- `GET /restaurants/:id/food` - Retrieve an information about food list of the restaurant by it's ID;
-- `GET /restaurants/:restaurant_id/food/:food_id` - Retrieve an information about a specific restaurant food by their ID.
+- `GET /restaurants` - Retrieve a list of restaurants and the information about the restaurant;
+- `GET /restaurants/:id` - Retrieve an information about food list of the restaurant by it's ID;
 
 ## Order Endpoints
 

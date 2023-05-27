@@ -96,5 +96,55 @@ namespace FoodFetch.Api.Controllers
                     User = result.User
                 });
         }
+
+        /// <summary>
+        /// Update user by id
+        /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="request">Update information</param>
+        /// <param name="cancellationToken">Cancellation token</param>
+        /// <returns>Nothing</returns>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     PATCH /users/{id}
+        ///     {
+        ///         "firstName": "Updated First Name"
+        ///         "secondName": "Updated Second Name"
+        ///         "email": "updatedExample@gmail.com"
+        ///     }
+        /// 
+        /// </remarks>
+        /// <response code="200">If user updated successfully</response>
+        /// <response code="404">User not found</response>
+        [HttpPatch("{userId}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(ErrorModel), 404)]
+        public async Task<IActionResult> UpdateUser([FromRoute] string userId,
+            [FromBody] UpdateUserByIdRequest request,
+            CancellationToken cancellationToken = default)
+        {
+            UpdateUserByIdCommand command = new()
+            {
+                Id = userId,
+                FirstName = request.FirstName,
+                SecondName = request.SecondName,
+                Email = request.Email
+            };
+
+            try
+            {
+                _ = await _mediator.Send(command, cancellationToken);
+            }
+            catch (System.Exception)
+            {
+                return NotFound(new ErrorModel
+                {
+                    Message = $"User with {userId} not found"
+                });
+                throw;
+            }
+            return NoContent();
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace FoodFetch.Domain.Database.Models
 {
     [Table("tbl_restaurants")]
-    public class Restaurant
+    public class DatabaseRestaurant
     {
         [Key]
         [Column("id")]
@@ -17,6 +17,6 @@ namespace FoodFetch.Domain.Database.Models
         [Column("description")]
         public string Description { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<DatabaseProduct> Products { get; set; }
     }
 }

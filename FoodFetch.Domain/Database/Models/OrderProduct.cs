@@ -19,6 +19,6 @@ namespace FoodFetch.Domain.Database.Models
         [ForeignKey(nameof(OrderId))]
         public Order Order { get; set; }
         [ForeignKey(nameof(ProductId))]
-        public Product Product { get; set; }
+        public DatabaseProduct Product { get; set; }
     }
 }
