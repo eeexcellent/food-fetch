@@ -8,7 +8,7 @@ using FoodFetch.Contracts.Enums;
 namespace FoodFetch.Domain.Database.Models
 {
     [Table("tbl_orders")]
-    public class Order
+    public class DatabaseOrder
     {
         [Key]
         [Column("id")]
@@ -21,6 +21,11 @@ namespace FoodFetch.Domain.Database.Models
         public DateTime OrderedAt { get; set; }
         [Column("closed_at")]
         public DateTime? ClosedAt { get; set; }
+        [Column("request")]
+        public string Request { get; set; }
+        [Column("delivery_place")]
+        [Required]
+        public string DeliveryPlace { get; set; }
         [Column("user_id")]
         public Guid UserId { get; set; }
         [ForeignKey(nameof(UserId))]

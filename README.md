@@ -6,7 +6,7 @@ This is a simple service providing the ability to order food, check status info 
 
 - As a user/deliveryman, I want to be able to create my account;
 - As a user/deliveryman, I want to be able to update some information about my account;
--
+
 - As a user, I want to be able to get the list of restaurants;
 - As a user, I want to be able to get the information about a specific restaurant;
 - As a user, I want to be able to get the information about a specific food;
@@ -35,7 +35,6 @@ Orders can be in one of the following statuses:
 Tasks have the following fields:
 
 - `id` - The unique identifier for the order;
-- `restaurant` - The restaurant that prepares the food specified in the order;
 - `order_list` - The list of dishes chosen by the client;
 - `request` - The client's wish to a restaurant;
 - `status` - The status of the order;

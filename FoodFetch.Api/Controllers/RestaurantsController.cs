@@ -43,7 +43,17 @@ namespace FoodFetch.Api.Controllers
             });
         }
 
+        /// <summary>
+        /// Get restaurant menu by id
+        /// </summary>
+        /// <param name="restaurantId">Restaurant ID</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>List of products</returns>
+        /// <response code="200">Menu returned successfully</response>
+        /// <response code="404">Restaurant with given ID doesn't exist</response>
         [HttpGet("{restaurantId}")]
+        [ProducesResponseType(typeof(GetRestaurantMenuByIdResponse), 200)]
+        [ProducesResponseType(typeof(ErrorModel), 404)]
         public async Task<IActionResult> GetRestaurantMenu([FromRoute] int restaurantId,
             CancellationToken cancellationToken = default)
         {

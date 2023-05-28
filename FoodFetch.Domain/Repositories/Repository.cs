@@ -16,6 +16,10 @@ namespace FoodFetch.Domain.Repositories
         Task UpdateUserById(DatabaseUser user, CancellationToken cancellationToken = default);
         Task<List<DatabaseRestaurant>> GetRestaurants(CancellationToken cancellationToken = default);
         Task<DatabaseRestaurant> GetRestaurantById(int id, CancellationToken cancellationToken = default);
+        Task<DatabaseOrder> CreateOrder(
+            DatabaseOrder order,
+            IEnumerable<OrderProduct> orderProducts,
+            CancellationToken cancellationToken = default);
     }
     internal class Repository : IRepository
     {
@@ -59,6 +63,30 @@ namespace FoodFetch.Domain.Repositories
         {
             DatabaseRestaurant restaurant = await _dbContext.Restaurants.Include(x => x.Products).SingleOrDefaultAsync(r => r.Id == id, cancellationToken);
             return restaurant;
+        }
+
+        public async Task<DatabaseOrder> CreateOrder(DatabaseOrder order, CancellationToken cancellationToken = default)
+        {
+            _ = await _dbContext.Orders.AddAsync(order, cancellationToken);
+            _ = await _dbContext.SaveChangesAsync(cancellationToken);
+
+            return order;
+        }
+
+        public async Task<DatabaseOrder> CreateOrder(DatabaseOrder order,
+            IEnumerable<OrderProduct> orderProducts,
+            CancellationToken cancellationToken = default)
+        {
+            _ = await _dbContext.Orders.AddAsync(order, cancellationToken);
+
+            foreach (OrderProduct orderProduct in orderProducts)
+            {
+                _ = await _dbContext.OrderProducts.AddAsync(orderProduct, cancellationToken);
+            }
+
+            _ = await _dbContext.SaveChangesAsync(cancellationToken);
+
+            return order;
         }
     }
 }

@@ -129,6 +129,11 @@ namespace FoodFetch.Domain.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("closed_at");
 
+                    b.Property<string>("DeliveryPlace")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("delivery_place");
+
                     b.Property<DateTime>("OrderedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("ordered_at");
@@ -136,6 +141,10 @@ namespace FoodFetch.Domain.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double precision")
                         .HasColumnName("price");
+
+                    b.Property<string>("Request")
+                        .HasColumnType("text")
+                        .HasColumnName("request");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer")

@@ -31,6 +31,6 @@ namespace FoodFetch.Domain.Database.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<DatabaseOrder> Orders { get; set; }
     }
 }

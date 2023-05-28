@@ -28,6 +28,6 @@ namespace FoodFetch.Domain.Database.Models
         [ForeignKey(nameof(RestaurantId))]
         public virtual DatabaseRestaurant Restaurant { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<DatabaseOrder> Orders { get; set; }
     }
 }
