@@ -65,33 +65,33 @@ namespace FoodFetch.Api.Controllers
         }
 
         /// <summary>
-        /// Get user by id
+        /// Get user by email
         /// </summary>
-        /// <param name="id">User identifier</param>
+        /// <param name="email">User email</param>
         /// <param name="cancellationToken">Cancellation Token</param>
         /// <returns>User information</returns>
         /// <response code="200">Returns user information</response>
         /// <response code="404">User not found</response>
         /// <response code="500">Internal server error</response>
-        [HttpGet("{id}")]
-        [ProducesResponseType(typeof(GetUserByIdResponse), 200)]
+        [HttpGet("{email}")]
+        [ProducesResponseType(typeof(GetUserByEmailResponse), 200)]
         [ProducesResponseType(typeof(ErrorModel), 404)]
-        public async Task<IActionResult> GetUserById(string id,
+        public async Task<IActionResult> GetUserByEmail(string email,
             CancellationToken cancellationToken = default)
         {
-            GetUserByIdQuery query = new()
+            GetUserByEmailQuery query = new()
             {
-                Id = id
+                Email = email
             };
 
-            GetUserByIdResult result = await _mediator.Send(query, cancellationToken);
+            GetUserByEmailResult result = await _mediator.Send(query, cancellationToken);
 
             return result.User == null
                 ? NotFound(new ErrorModel
                 {
-                    Message = $"User with {id} not found"
+                    Message = $"User with email {email} not found"
                 })
-                : Ok(new GetUserByIdResponse()
+                : Ok(new GetUserByEmailResponse()
                 {
                     User = result.User
                 });

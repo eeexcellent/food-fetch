@@ -12,6 +12,7 @@ namespace FoodFetch.Domain.Repositories
     internal interface IRepository
     {
         Task<DatabaseUser> AddUser(DatabaseUser user, CancellationToken cancellationToken = default);
+        Task<DatabaseUser> GetUserByEmail(string email, CancellationToken cancellationToken = default);
         Task<DatabaseUser> GetUserById(string id, CancellationToken cancellationToken = default);
         Task UpdateUserById(DatabaseUser user, CancellationToken cancellationToken = default);
         Task<List<DatabaseRestaurant>> GetRestaurants(CancellationToken cancellationToken = default);
@@ -38,9 +39,9 @@ namespace FoodFetch.Domain.Repositories
             return user;
         }
 
-        public Task<DatabaseUser> GetUserById(string id, CancellationToken cancellationToken = default)
+        public Task<DatabaseUser> GetUserByEmail(string email, CancellationToken cancellationToken = default)
         {
-            return _dbContext.Users.SingleOrDefaultAsync(u => u.Id.ToString() == id, cancellationToken);
+            return _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email, cancellationToken);
         }
 
         public async Task UpdateUserById(DatabaseUser user, CancellationToken cancellationToken = default)
@@ -87,6 +88,11 @@ namespace FoodFetch.Domain.Repositories
             _ = await _dbContext.SaveChangesAsync(cancellationToken);
 
             return order;
+        }
+
+        public Task<DatabaseUser> GetUserById(string id, CancellationToken cancellationToken = default)
+        {
+            return _dbContext.Users.SingleOrDefaultAsync(u => u.Id.ToString() == id, cancellationToken);
         }
     }
 }
