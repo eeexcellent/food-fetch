@@ -21,6 +21,7 @@ namespace FoodFetch.Domain.Repositories
             DatabaseOrder order,
             IEnumerable<OrderProduct> orderProducts,
             CancellationToken cancellationToken = default);
+        Task<DatabaseOrder> GetOrderById(string id, CancellationToken cancellationToken = default);
     }
     internal class Repository : IRepository
     {
@@ -93,6 +94,11 @@ namespace FoodFetch.Domain.Repositories
         public Task<DatabaseUser> GetUserById(string id, CancellationToken cancellationToken = default)
         {
             return _dbContext.Users.SingleOrDefaultAsync(u => u.Id.ToString() == id, cancellationToken);
+        }
+
+        public Task<DatabaseOrder> GetOrderById(string id, CancellationToken cancellationToken = default)
+        {
+            return _dbContext.Orders.Include(x => x.Products).Include(x => x.User).FirstOrDefaultAsync(o => o.Id.ToString() == id, cancellationToken);
         }
     }
 }

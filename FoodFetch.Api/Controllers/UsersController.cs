@@ -72,7 +72,6 @@ namespace FoodFetch.Api.Controllers
         /// <returns>User information</returns>
         /// <response code="200">Returns user information</response>
         /// <response code="404">User not found</response>
-        /// <response code="500">Internal server error</response>
         [HttpGet("{email}")]
         [ProducesResponseType(typeof(GetUserByEmailResponse), 200)]
         [ProducesResponseType(typeof(ErrorModel), 404)]

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 using FoodFetch.Contracts.Http;
 using FoodFetch.Domain.Commands;
+using FoodFetch.Domain.Queries;
 
 using MediatR;
 
@@ -85,6 +86,38 @@ namespace FoodFetch.Api.Controllers
                     ClientEmail = result.ClientEmail,
                     TotalPrice = result.TotalPrice,
                     OrderedAt = result.OrderedAt
+                });
+        }
+
+        /// <summary>
+        /// Get order by id
+        /// </summary>
+        /// <param name="id">Order id</param>
+        /// <param name="cancellationToken">Cancellation Token</param>
+        /// <returns>Order information</returns>
+        /// <response code="200">Returns order information</response>
+        /// <response code="404">Order not found</response>
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(GetOrderByIdResponse), 200)]
+        [ProducesResponseType(typeof(ErrorModel), 404)]
+        public async Task<IActionResult> GetOrderById(string id,
+            CancellationToken cancellationToken = default)
+        {
+            GetOrderByIdQuery query = new()
+            {
+                Id = id
+            };
+
+            GetOrderByIdResult result = await _mediator.Send(query, cancellationToken);
+
+            return result.Order == null
+                ? NotFound(new ErrorModel
+                {
+                    Message = $"Order with id {id} not found"
+                })
+                : Ok(new GetOrderByIdResponse()
+                {
+                    Order = result.Order
                 });
         }
     }
