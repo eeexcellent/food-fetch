@@ -21,6 +21,9 @@ namespace FoodFetch.Domain.Database.Models
         public int Calories { get; set; }
         [Column("restaurant_id")]
         public int RestaurantId { get; set; }
+        [Column("price")]
+        [Range(0, int.MaxValue)]
+        public double Price { get; set; }
 
         [ForeignKey(nameof(RestaurantId))]
         public virtual DatabaseRestaurant Restaurant { get; set; }
