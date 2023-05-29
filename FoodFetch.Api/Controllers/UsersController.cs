@@ -35,7 +35,7 @@ namespace FoodFetch.Api.Controllers
         ///     {
         ///         "firstName": "First Name"
         ///         "secondName": "Second Name"
-        ///         "role": 0
+        ///         "role": "Customer"
         ///         "email": "example@gmail.com"
         ///     }
         /// 
