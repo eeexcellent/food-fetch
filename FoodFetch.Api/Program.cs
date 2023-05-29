@@ -11,10 +11,11 @@ using System.Reflection;
 using System.IO;
 using FoodFetch.Api;
 using Microsoft.Extensions.Options;
+using System.Text.Json.Serialization;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -25,6 +26,7 @@ builder.Services.AddSwaggerGen(options =>
         Title = "FoodFetch API",
         Description = "An ASP.NET Core Web API for managing product orders, check status info about order, assign orders to users"
     });
+    options.SchemaFilter<EnumSchemaFilter>();
 
     string xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
