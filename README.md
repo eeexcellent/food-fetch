@@ -86,7 +86,7 @@ The following endpoints are available for interacting with restaurants:
 
 - `PUT /order` - Create a new order;
 - `GET /order/:id` - Retrieve an information about order by it's ID;
-- `PATCH /order/:id/status` - Update the status of an order (for deliveries only).
+- `PATCH /order/:id/` - Update the status of an order (for deliveries only).
 
 ## Users Endpoints
 

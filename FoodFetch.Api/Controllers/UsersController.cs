@@ -33,9 +33,9 @@ namespace FoodFetch.Api.Controllers
         /// 
         ///     PUT /users
         ///     {
-        ///         "firstName": "First Name"
-        ///         "secondName": "Second Name"
-        ///         "role": "Customer"
+        ///         "firstName": "First Name",
+        ///         "secondName": "Second Name",
+        ///         "role": "Customer",
         ///         "email": "example@gmail.com"
         ///     }
         /// 
@@ -108,8 +108,8 @@ namespace FoodFetch.Api.Controllers
         /// 
         ///     PATCH /users/{id}
         ///     {
-        ///         "firstName": "Updated First Name"
-        ///         "secondName": "Updated Second Name"
+        ///         "firstName": "Updated First Name",
+        ///         "secondName": "Updated Second Name",
         ///         "email": "updatedExample@gmail.com"
         ///     }
         /// 

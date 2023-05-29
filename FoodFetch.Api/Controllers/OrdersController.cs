@@ -37,7 +37,7 @@ namespace FoodFetch.Api.Controllers
         ///         "productList": [
         ///           1, 5, 7
         ///         ],     
-        ///         "clientId": "123456ab-a123-1234-ab12-123a4b56cde7"
+        ///         "clientId": "123456ab-a123-1234-ab12-123a4b56cde7",
         ///         "deliveryPlace": "34 Shevchenko Boulevard, Kyiv, Ukraine",
         ///         "clientRequest": "Add more salt please"
         ///     }
