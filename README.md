@@ -52,7 +52,7 @@ Food have the following fields:
 - `descripion` - The description of the food provided by a restaurant;
 - `availability` - The indicator that shows if food is available to order;
 - `calories` - The number of calories in food;
-- `restaurant` - The restaurant that prepares this food.
+- `restaurant` - The restaurant preparing the order.
 
 ## Restaurant Fields
 
