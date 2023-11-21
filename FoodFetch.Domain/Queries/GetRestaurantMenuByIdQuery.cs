@@ -39,18 +39,6 @@ namespace FoodFetch.Domain.Queries
                 return new();
             }
 
-            List<Product> products = new(restaurant.Products.Count);
-            foreach (DatabaseProduct product in restaurant.Products)
-            {
-                products.Add(new Product
-                {
-                    Id = product.Id,
-                    Title = product.Title,
-                    Description = product.Description,
-                    Calories = product.Calories
-                });
-            }
-
             return new GetRestaurantMenuByIdResult
             {
                 RestaurantId = restaurant.Id,

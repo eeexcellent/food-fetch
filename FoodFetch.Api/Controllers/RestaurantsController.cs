@@ -79,7 +79,8 @@ namespace FoodFetch.Api.Controllers
                     Id = product.Id,
                     Title = product.Title,
                     Description = product.Description,
-                    Calories = product.Calories
+                    Calories = product.Calories,
+                    Price = product.Price
                 });
             }
             return Ok(new GetRestaurantMenuByIdResponse
