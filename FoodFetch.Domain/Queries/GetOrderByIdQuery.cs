@@ -44,7 +44,8 @@ namespace FoodFetch.Domain.Queries
                     Id = dbProduct.Id,
                     Title = dbProduct.Title,
                     Description = dbProduct.Description,
-                    Calories = dbProduct.Calories
+                    Calories = dbProduct.Calories,
+                    Price = dbProduct.Price
                 };
                 products.Add(product);
             }
